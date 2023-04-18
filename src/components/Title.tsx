@@ -1,16 +1,15 @@
-import './Title.css'
+import './styles/Title.css'
 
-export type titulo = {
-    title: string;
-    desc: string;
-};
-
-export default function Title(props: titulo){
-    return(
-        <div>
-            <h1>{props.title}</h1>
-            <h2>{props.desc}</h2>
-        </div>
-    )
+type TitleProps = {
+    title: string
+    desc: string
 }
 
+export default function Title({title, desc}: TitleProps){
+    return(
+        <>
+            <h1>{title}</h1>
+            <h2>{desc}</h2>
+        </>
+    )
+}

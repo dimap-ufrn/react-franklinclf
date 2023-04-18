@@ -1,36 +1,25 @@
-import './Item.css'
-import Count from './Count'
-import Trash from './Trash'
-import React,{useState} from 'react'
-
-export type itemInfo = {
-    image: string;
-    name: string;
-    desc: string;
-    quant: number;
+import './styles/Item.css'
+import ItemCount from './ItemCount'
+type ItemListProps = {
+    name: string
+    desc: string
+    image: string
+    price: number
+    itemName: string
 }
 
-export default function Item(props: itemInfo){
+export default function ItemList({name, desc, image, price, itemName}: ItemListProps){
     return(
-        <div>
-            <div className='item-container'>
-                <div className='image-container'>
-                    <img src={props.image}></img>
-                </div>
-                <div className='info-container'>
-                    <div className='item-text'>
-                        <p>DESC DO ITEM</p>
-                        <p>NOME DO ITEM</p>
-                        <p>PREÇO DO ITEM</p>
-                    </div>
-                    <div className='item-quantity'> 
-                        <Count/>
-                    </div>
-                    <div className='item-trash'>
-                        <Trash/>
-                    </div>
-                </div>
+        <div className='item-container'>
+            <div className='image-container'>
+                <img src={image}/>
             </div>
+            <div className='info-container'>
+                <p className='name'>{name}</p>
+                <p>{desc}</p>
+                <p> R$ {price}</p>
+            </div>
+            <ItemCount itemPrice={price} itemName={itemName} />
         </div>
     )
 }

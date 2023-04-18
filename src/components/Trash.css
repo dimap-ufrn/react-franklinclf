@@ -1,8 +1,0 @@
-.trash {
-    scale: 130%;
-    color: rgb(50, 50, 50);
-}
-
-.trash:hover {
-    cursor: pointer;
-}
