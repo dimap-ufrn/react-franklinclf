@@ -23,6 +23,8 @@ export default function Frete() {
         }
         catch {
             setInput("")
+            setFreteData({})
+            setGlobalFrete(0)
             setPlaceholder("CEP inválido.")
             return;
         }
@@ -37,9 +39,15 @@ export default function Frete() {
             gotIT = true
             return
         }
-        else{
+        else if(freteData.uf.length == 2){
             setGlobalFrete(35)
             gotIT = true
+            return
+        }
+        else{
+            setFreteData({})
+            setGlobalFrete(0)
+            setInput("CEP Inválido")
             return
         }
 
